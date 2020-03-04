@@ -13,20 +13,23 @@ let app = express();
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('Develop'))
+app.use(express.static("public"));
+
 
 
 // Create routes for user to take notes
 app.get("/notes", function(req, res) {
-  res.sendFile(path.join(__dirname, "Develop/public/assets/notes.html"));
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
+
+
+
+app.post('/', function (req, res) {
+  res.send('POST request to the homepage')
+})
 
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "Develop/public/assets/index.html"));
-});
-
-app.get("/api/notes", function(req, res) {
-  
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 
