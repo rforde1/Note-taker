@@ -26,22 +26,7 @@ app.get("/api/notes",(req,res)=>{
   });
 });
 
-// app.get("/api/notes/:id", (req,res) =>{
-//   const noteToDelete = req.param.id;
-  
-//   fsReadFile(path.join(__dirname,"/db/db.json")).then((req,res)=>{
-//     const originalDB = JSON.parse(res);
-//     let newDb;
-//     newDb = originalDB.filter(note =>{
-//       note.id != noteToDelete
-//     }) ;
-//   });
 
-//   fsWriteFile(path.join(__dirname,"/db/db.json"),JSON.stringify(newDb),(err)=>{
-//     if (err) res.json(err);
-//     res.json(newDB);
-// });
-// })
 
 // Post routes
 app.post("/api/notes",(req,res)=>{
@@ -50,9 +35,9 @@ app.post("/api/notes",(req,res)=>{
       let resNotes = JSON.parse(response);
       let uniqueId = uni();
       let notes = {
-          noteId: uniqueId,
-          noteTitle: req.body.noteTitle,
-          noteText: req.body.text
+          id: uniqueId,
+          title: req.body.title,
+          text: req.body.text
       }
       resNotes.push(notes);
       // Then we want to write this to our db.json
