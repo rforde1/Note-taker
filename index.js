@@ -26,6 +26,10 @@ app.get("/api/notes",(req,res)=>{
   });
 });
 
+// app.get("/api/notes/:id", (req,res) =>{
+//   fsReadFile
+// })
+
 // Post routes
 app.post("/api/notes",(req,res)=>{
   fsReadFile(path.join(__dirname,"/db/db.json"))
@@ -46,9 +50,10 @@ app.post("/api/notes",(req,res)=>{
   });
 })
 
-// Dele
+// Delete
 app.delete("/api/notes/:id",(req,res)=>{
     deleteNote(req.param.id, res);
+    console.log("this")
 });
 
 // Function for deleting note
