@@ -27,7 +27,20 @@ app.get("/api/notes",(req,res)=>{
 });
 
 // app.get("/api/notes/:id", (req,res) =>{
-//   fsReadFile
+//   const noteToDelete = req.param.id;
+  
+//   fsReadFile(path.join(__dirname,"/db/db.json")).then((req,res)=>{
+//     const originalDB = JSON.parse(res);
+//     let newDb;
+//     newDb = originalDB.filter(note =>{
+//       note.id != noteToDelete
+//     }) ;
+//   });
+
+//   fsWriteFile(path.join(__dirname,"/db/db.json"),JSON.stringify(newDb),(err)=>{
+//     if (err) res.json(err);
+//     res.json(newDB);
+// });
 // })
 
 // Post routes
